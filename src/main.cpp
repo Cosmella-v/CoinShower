@@ -24,9 +24,16 @@ class $modify(CoinShowerHook, GJBaseGameLayer) {
 			auto objectRect = effectSprite->getObjectRect();
 			if (!playerRect.intersectsRect(objectRect))
 				continue;
+			
+			bool l_isDisabled = effectSprite->m_isDisabled;
+			bool l_isDisabled2 = effectSprite->m_isDisabled2;
 
 			effectSprite->EffectGameObject::triggerObject(this, player->m_uniqueID, nullptr);
-			GJBaseGameLayer::destroyObject(effectSprite);                                     
+			GJBaseGameLayer::destroyObject(effectSprite); 
+			
+			// undo new state
+			effectSprite->m_isDisabled = l_isDisabled;
+			effectSprite->m_isDisabled2 = l_isDisabled2;
 		};
 
 		GJBaseGameLayer::collisionCheckObjects(player, sectionObjects, objectCount, dt);
