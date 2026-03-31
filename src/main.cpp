@@ -5,6 +5,22 @@ using namespace geode::prelude;
 bool g_toggle = false;
 bool g_practicemode = false;
 bool g_soggy = false;
+void playSoggyAnimation(CCNode* effectSprite) {
+	if (auto parent = effectSprite->getParent()) {
+        auto overlay = OverlayManager::get();
+        auto overlayPos = overlay->convertToNodeSpace(parent->convertToWorldSpace(effectSprite->getPosition()));
+        auto sog = CCSprite::create("soggy.png"_spr);
+        overlay->addChild(sog);
+		sog->setScale(0);
+        sog->setPosition(overlayPos);
+        sog->runAction(CCRepeatForever::create(CCSequence::create(CCScaleTo::create(0.1f, 0.1f, 0.3f), CCScaleTo::create(0.1f, 0.3f, 0.3f), nullptr)));
+        sog->runAction(CCSequence::create(
+            CCSpawn::create(CCMoveBy::create(0.6f, ccp(0, 60)), CCFadeOut::create(0.6f), nullptr),
+            CCCallFunc::create(sog, callfunc_selector(CCNode::removeFromParent)),
+            nullptr
+        ));
+};
+};
 class $modify(CoinShowerHook, GJBaseGameLayer) {
 	void collisionCheckObjects(PlayerObject *player, gd::vector<GameObject *> *sectionObjects, int objectCount, float dt) {
 		if (m_isPracticeMode) {
@@ -31,13 +47,7 @@ class $modify(CoinShowerHook, GJBaseGameLayer) {
 			bool l_isDisabled = effectSprite->m_isDisabled;
 			bool l_isDisabled2 = effectSprite->m_isDisabled2;
 			if (g_soggy) {
-				if(auto x=effectSprite->getParent()){
-					if(auto x2=x->getParent()){
-						auto sog = CCSprite::create("soggy.png"_spr);
-						x2->addChild(sog);
-						sog->setPosition(x2->getPosition());						
-					};
-				};
+				playSoggyAnimation(effectSprite);
 			};
 
 			effectSprite->EffectGameObject::triggerObject(this, player->m_uniqueID, nullptr);
