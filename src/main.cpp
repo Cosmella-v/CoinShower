@@ -1,7 +1,10 @@
 #include <Geode/modify/GJBaseGameLayer.hpp>
+#include <Geode/Geode.hpp>
+using namespace geode::prelude;
 
 bool g_toggle = false;
 bool g_practicemode = false;
+bool g_soggy = false;
 class $modify(CoinShowerHook, GJBaseGameLayer) {
 	void collisionCheckObjects(PlayerObject *player, gd::vector<GameObject *> *sectionObjects, int objectCount, float dt) {
 		if (m_isPracticeMode) {
@@ -27,6 +30,15 @@ class $modify(CoinShowerHook, GJBaseGameLayer) {
 			
 			bool l_isDisabled = effectSprite->m_isDisabled;
 			bool l_isDisabled2 = effectSprite->m_isDisabled2;
+			if (g_soggy) {
+				if(auto x=effectSprite->getParent()){
+					if(auto x2=x->getParent()){
+						auto sog = CCSprite::create("soggy.png"_spr);
+						x2->addChild(sog);
+						sog->setPosition(x2->getPosition());						
+					};
+				};
+			};
 
 			effectSprite->EffectGameObject::triggerObject(this, player->m_uniqueID, nullptr);
 			GJBaseGameLayer::destroyObject(effectSprite); 
@@ -47,10 +59,15 @@ void toggleMod(bool toggle) {
 void togglePractice(bool toggle){
     g_practicemode = toggle;
 };
+void soggy(bool sogg){
+	g_soggy = sogg;
+};
 
 $on_mod(Loaded) {
 	toggleMod(geode::Mod::get()->getSettingValue<bool>("toggle"));
 	geode::listenForSettingChanges<bool>("toggle", toggleMod);
 	togglePractice(geode::Mod::get()->getSettingValue<bool>("practice-mode"));
 	geode::listenForSettingChanges<bool>("practice-mode", togglePractice);
+	soggy(geode::Mod::get()->getSettingValue<bool>("soggy"));
+	geode::listenForSettingChanges<bool>("soggy", soggy);
 }

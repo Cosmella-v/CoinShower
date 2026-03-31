@@ -7,24 +7,31 @@
 		"ios": "2.2081"
 	},
 	"id": "cosmella.coin-shower",
-	"name": "Coin Shower",
-	"version": "v1.0.1",
+	"name": "Soggy Shower",
+	"version": "v1.0.2-beta.2000000999999999992",
 	"developer": "Cosmella",
-	"description": "it is raining coins",
+	"description": "Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy ",
 	"settings": {
+		"soggy": {
+			"name": "Toggle Soggy mode",
+			"description": "Soggy",
+			"type": "bool",
+			"default": true
+		},
 		"toggle": {
 			"name": "Toggle Normal mode",
-			"description": "coin go shower toggle",
+			"description": "Soggy go shower toggle",
 			"type": "bool",
 			"default": true
 		},
 		"practice-mode": {
 			"name": "Toggle Practice mode",
-			"description": "coin go shower toggle in practice mode",
+			"description": "Soggy go shower toggle in practice mode",
 			"type": "bool",
 			"default": false
 		}
 	},
+	"resources": {"sprites": ["soggy.png"]},
 	"tags": [
 		"joke",
 		"offline","gameplay",
