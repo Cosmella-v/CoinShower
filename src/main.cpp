@@ -39,6 +39,8 @@ class $modify(CoinShowerHook, GJBaseGameLayer) {
 			auto *effectSprite = geode::cast::typeinfo_cast<EffectGameObject *>(obj);
 			if (!effectSprite) // weird, but just in case
 				continue;
+			// to fix the bug in dash and other levels (tested in dash)
+			if (!effectSprite->m_isActivated) continue;
 
 			auto objectRect = effectSprite->getObjectRect();
 			if (!playerRect.intersectsRect(objectRect))

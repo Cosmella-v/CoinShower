@@ -1,5 +1,5 @@
 {
-	"geode": "5.3.0",
+	"geode": "5.5.3",
 	"gd": {
 		"win": "2.2081",
 		"android": "2.2081",
@@ -8,25 +8,25 @@
 	},
 	"id": "cosmella.coin-shower",
 	"name": "Soggy Shower",
-	"version": "v1.0.2-beta.2000000999999999996",
+	"version": "v1.0.2",
 	"developer": "Cosmella",
-	"description": "Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy Soggy ",
+	"description": "it is raining coins",
 	"settings": {
 		"soggy": {
 			"name": "Toggle Soggy mode",
 			"description": "Soggy",
 			"type": "bool",
-			"default": true
+			"default": false
 		},
 		"toggle": {
 			"name": "Toggle Normal mode",
-			"description": "Soggy go shower toggle",
+			"description": "coin go shower toggle",
 			"type": "bool",
 			"default": true
 		},
 		"practice-mode": {
 			"name": "Toggle Practice mode",
-			"description": "Soggy go shower toggle in practice mode",
+			"description": "coin go shower toggle in practice mode",
 			"type": "bool",
 			"default": false
 		}
