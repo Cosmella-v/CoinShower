@@ -7,17 +7,11 @@
 		"ios": "2.2081"
 	},
 	"id": "cosmella.coin-shower",
-	"name": "Soggy Shower",
-	"version": "v1.0.2",
+	"name": "Coin Shower",
+	"version": "v1.0.3",
 	"developer": "Cosmella",
 	"description": "it is raining coins",
 	"settings": {
-		"soggy": {
-			"name": "Toggle Soggy mode",
-			"description": "Soggy",
-			"type": "bool",
-			"default": false
-		},
 		"toggle": {
 			"name": "Toggle Normal mode",
 			"description": "coin go shower toggle",
@@ -27,6 +21,12 @@
 		"practice-mode": {
 			"name": "Toggle Practice mode",
 			"description": "coin go shower toggle in practice mode",
+			"type": "bool",
+			"default": false
+		},
+		"soggy": {
+			"name": "Toggle Soggy mode",
+			"description": "Soggy",
 			"type": "bool",
 			"default": false
 		}
